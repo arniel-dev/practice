@@ -7,6 +7,18 @@ export function calculateBiorhythms(birthDate, targetDate) {
     intellectual: calculateBiorhythm(birthDate, targetDate, 33),
   };
 }
+
+export function calculateBiorhythmSeries(birthDate, centralDate, range) {
+  const series = [];
+  const centralDay = dayjs(centralDate);
+  for (let diff = -range; diff <= range; diff++) {
+    const targetDay = centralDay.add(diff, "day");
+    const biorhythms = calculateBiorhythms(birthDate, targetDay);
+    series.push({ date: targetDay.format("D MMM"), ...biorhythms });
+  }
+  return series;
+}
+
 function calculateBiorhythm(birthDate, targetDate, dayCycle) {
   const birthDay = dayjs(birthDate);
   const targetDay = dayjs(targetDate);
