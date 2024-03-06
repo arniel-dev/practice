@@ -17,7 +17,7 @@ function BiorhythmChart({ birthDate, targetDate }) {
         <CartesianGrid vertical={false} strokeDasharray="2 4" />
         <XAxis
           dataKey="date"
-          ticks={[series[1].date, series[15].date, series[29].date]}
+          ticks={[series[3].date, series[15].date, series[27].date]}
         />
         <ReferenceLine x={series[15].date} />
         <Line dataKey="physical" stroke="green" dot={false} type="natural" />
